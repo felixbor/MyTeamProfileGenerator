@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.5",
+    "jest": "^29.3.1"
+  },
+  "name": "myteamprofilegenerator",
+  "description": "generats team profile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixbor/MyTeamProfileGenerator.git"
+  },
+  "author": "Feliks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felixbor/MyTeamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/felixbor/MyTeamProfileGenerator#readme"
+}

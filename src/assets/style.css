@@ -1,0 +1,23 @@
+ header  {
+    margin-top: 0;
+    background-color: aqua;
+    text-align: center;
+    line-height: 100px;
+    font-size: 2rem;
+ }
+  h2{
+    margin-top: 0;
+     margin-bottom: 0;
+  }
+ .container{
+    display: flex;
+    flex-direction: row;
+ padding: 10%;
+ }
+
+ .card-holder {
+    margin: 2%;
+    padding: 3%;
+    width:15%;
+    background-color: bisque;
+ }
