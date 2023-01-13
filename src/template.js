@@ -3,9 +3,12 @@
 
  function HtmlRender (data) {
     console.log(' works')
-    console.log(data[0])
-}
-return `
+    console.log(data)
+ 
+
+
+
+  return `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,22 +25,11 @@ return `
         <h2> My Team Profile</h2>
     </header>
     <div class="container">
-
+     ${cards}
     </div>
 
-
 `
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-module.exports =HtmlRender
+module.exports = HtmlRender

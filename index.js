@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const HtmlRender = require('./src/template.js')
-const AllTeamData = [];
+const AllTeamData = {manager:[],engineer:[], intern:[]}
 
 
 function Manager() {
@@ -61,7 +61,7 @@ function Manager() {
 
     ])
         .then(dataMan => {
-            AllTeamData.manager =[]
+           
             AllTeamData.manager.push(dataMan);
             AddTeamMember();
         })
@@ -92,7 +92,7 @@ function AddTeamMember() {
             case "Finish building my team":
                 console.log("finished")
                 console.log(AllTeamData)
-                console.log(AllTeamData)
+                
                 createTeamProfile()
                 break;
 
@@ -152,7 +152,7 @@ function Engineer() {
             }
         }
     ]).then(data => {
-        AllTeamData.engineer=[]
+     
         AllTeamData.engineer.push(data);
         AddTeamMember();
     })
@@ -212,16 +212,59 @@ function Intern() {
         
     ])
     .then(data => {
-        AllTeamData.intern=[]
+      
         AllTeamData.intern.push(data);
         AddTeamMember();
 }
 )
 
-}
-Manager()
+}//
+//Manager()
 
 createTeamProfile = () =>{
     fs.writeFileSync("./dist/index.html", HtmlRender(AllTeamData));
-    console.log(AllTeamData[0])
+   
 }
+
+
+/*
+const peoples = [{name: "Bob", age :35}, {name: "Jim", age: 55}, {name: "Kim", age: 24}]
+
+const messages = peoples.map((person, index) => {
+   return `${person.name} is ${person.age} years old`
+}).join(',')
+
+console.log(messages)*/
+
+
+const data ={
+    manager: [
+      {
+        name: 'asdfa',
+        id: '52',
+        email: 'sdf@dff.sdf',
+        officeNumber: '52'
+      }
+    ],
+    engineer: [
+      {
+        name: 'asdfsad',
+        id: '5111',
+        email: 'sdf@sdfsdf.sdf',
+        github: 'eengineer1'
+      },
+      {
+        name: 'engin 2',
+        id: '655',
+        email: 'sdsg@dsdf.dsfs',
+        github: 'engine 2222'
+      }
+    ],
+    intern: []
+  }
+
+
+const loop = data.engineer.map((person)=>{
+    return person.name
+})
+console.log(loop)
