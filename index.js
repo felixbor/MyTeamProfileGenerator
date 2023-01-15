@@ -162,7 +162,7 @@ function Intern() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'internName',
+            name: 'name',
             message: 'Enter the name of the intern',
             validate: ansName => {
                 if (ansName !== "") {
@@ -174,7 +174,7 @@ function Intern() {
         },
         {
             type: 'input',
-            name: 'internId',
+            name: 'id',
             message: 'Enter the employee Id of the intern',
             validate: ansId => {
                 if (ansId !== null) {
@@ -186,7 +186,7 @@ function Intern() {
         },
         {
             type: 'input',
-            name: 'internEmail',
+            name: 'email',
             message: 'Enter the email address of the intern',
             validate: emInput => {
                 let Email =emInput.match( /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
@@ -199,13 +199,13 @@ function Intern() {
         },
         {
             type: 'input',
-            name: 'internSchool',
+            name: 'School',
             message: 'Enter the school of the intern',
             validate: emInput => {
                 if (emInput !== "") {
                     return true;
                 } else {
-                    return "Please enter schoolof the intern ";
+                    return "Please enter school of the intern ";
                 }
             }
         },
@@ -218,8 +218,8 @@ function Intern() {
 }
 )
 
-}//
-//Manager()
+}
+Manager()
 
 createTeamProfile = () =>{
     fs.writeFileSync("./dist/index.html", HtmlRender(AllTeamData));
@@ -237,7 +237,7 @@ const messages = peoples.map((person, index) => {
 console.log(messages)*/
 
 
-const data ={
+const data = {
     manager: [
       {
         name: 'asdfa',
@@ -263,8 +263,19 @@ const data ={
     intern: []
   }
 
+ /*
+const loop = data.map(position=>{
+    if (position.manager) {
+        return manager.name
+    }
+    if (position.intern){
+        return intern.name}
+    if (position.engineer) {
+ return engineer.name
+    } 
 
-const loop = data.engineer.map((person)=>{
-    return person.name
-})
+
+    }
+)
 console.log(loop)
+*/
