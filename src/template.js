@@ -7,7 +7,9 @@
      return `
 <div class="card-holder">
      <div class=name>
-     <p class=" label"> Manager</p>
+     <p class=" label"><span class="material-symbols-outlined">
+     person
+     </span> Manager</p>
         <H2>${employee.name}</H2>
         
      </div>
@@ -25,7 +27,9 @@ const engineer = data.engineer.map((eng)=>{
     return `
 <div class="card-holder">
     <div class=name>
-    <p class=" label"> Engineer</p>
+    <p class=" label"> <span class="material-symbols-outlined">
+    manage_accounts
+    </span> Engineer</p>
        <H2>${eng.name}</H2>
        
     </div>
@@ -43,7 +47,10 @@ const intern = data.intern.map((int)=>{
     return `
 <div class="card-holder">
     <div class=name>
-    <p class=" label"> Intern</p>
+    <p class=" label"> 
+    <span class="material-symbols-outlined">
+local_library
+</span>Intern</p>
        <H2>${int.name}</H2>
     </div>
    <div class=data>
@@ -65,6 +72,7 @@ const intern = data.intern.map((int)=>{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>My Team Profile </title>
 </head>
 
