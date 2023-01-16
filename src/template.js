@@ -47,7 +47,6 @@ const intern = data.intern.map((int)=>{
        <H2>${int.name}</H2>
     </div>
    <div class=data>
-   <p class=" label"> Engineer</p>
        <ul class="list-group">
            <li class="list">ID:${int.id}</li>
            <li class="list">Email: <a href="mailto:${int.email}">${int.email}</a></li>
