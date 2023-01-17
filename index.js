@@ -1,10 +1,14 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
+const fs = require('fs');const Employee = require('./lib/Employee.js');
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+
 const HtmlRender = require('./src/template.js')
-const AllTeamData = {manager:[],engineer:[], intern:[]}
+const AllTeamData =[]
 
 
-function Manager() {
+function ManagerInput() {
     inquirer.prompt([
         {
             type: 'input',
@@ -24,8 +28,8 @@ function Manager() {
             type: 'input',
             name: 'id',
             message: "What is this manager's employee ID number?",
-            validate: Idinput => {
-                if (Idinput !== null) {
+            validate: idInput => {
+                if (!isNaN(parseInt(idInput))) {
                     return true;
                 } else {
                     return "Please enter an ID number";
@@ -50,8 +54,8 @@ function Manager() {
             type: 'input',
             name: 'officeNumber',
             message: "What is the manager's office number?",
-            validate: OfNumInput => {
-                if (OfNumInput) {
+            validate: Input => {
+                if (!isNaN(parseInt(Input))) {
                     return true;
                 } else {
                     return "Please add an office Number";
@@ -60,9 +64,9 @@ function Manager() {
         },
 
     ])
-        .then(dataMan => {
-           
-            AllTeamData.manager.push(dataMan);
+        .then(data => {
+            let manager = new Manager(data.name,data.id,data.email,'Manager',data.officeNumber,)
+            AllTeamData.push(manager);
             AddTeamMember();
         })
 
@@ -82,11 +86,11 @@ function AddTeamMember() {
     ]).then(choice => {
         switch (choice.add) {
             case "Engineer":
-                Engineer();
+                EngineerInput();
                 break;
 
             case "Intern":
-                Intern();
+                InternInput();
                 break;
 
             case "Finish building my team":
@@ -100,7 +104,7 @@ function AddTeamMember() {
     });
 }
 
-function Engineer() {
+function EngineerInput() {
     inquirer.prompt([
         {
             type: 'input',
@@ -118,8 +122,8 @@ function Engineer() {
             type: 'input',
             name: 'id',
             message: "What is this engineer's ID number?",
-            validate: ansId => {
-                if (ansId !== null) {
+            validate: idInput => {
+                if (!isNaN(parseInt(idInput))) {
                     return true;
                 } else {
                     return "Please enter an ID number";
@@ -152,13 +156,13 @@ function Engineer() {
             }
         }
     ]).then(data => {
-     
-        AllTeamData.engineer.push(data);
+      let engineer =new Engineer(data.name,data.id,data.email,'Engineer',data.github,)
+        AllTeamData.push(engineer);
         AddTeamMember();
     })
 };
 
-function Intern() {
+function InternInput() {
     inquirer.prompt([
         {
             type: 'input',
@@ -176,8 +180,8 @@ function Intern() {
             type: 'input',
             name: 'id',
             message: 'Enter the employee Id of the intern',
-            validate: ansId => {
-                if (ansId !== null) {
+            vvalidate: idInput => {
+                if (!isNaN(parseInt(idInput))) {
                     return true;
                 } else {
                     return "Please enter an ID number";
@@ -212,14 +216,14 @@ function Intern() {
         
     ])
     .then(data => {
-      
-        AllTeamData.intern.push(data);
+       let intern = new Intern(data.name,data.id,data.email,"Intern",data.School, )
+        AllTeamData.push(intern);
         AddTeamMember();
 }
 )
 
 }
-Manager()
+ManagerInput()
 
 createTeamProfile = () =>{
     fs.writeFileSync("./dist/index.html", HtmlRender(AllTeamData));

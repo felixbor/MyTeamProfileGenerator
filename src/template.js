@@ -1,10 +1,13 @@
 
 
 
- function HtmlRender (data) {
-     
-  const manager = data.manager.map((employee)=>{
-     return `
+function HtmlRender(data) {
+
+    //const manager = data.Manager.map((employee)=>{
+    const employeeCards = data.map((employee) => {
+        switch (employee.role) {
+            case "Manager":
+                return `
 <div class="card-holder">
      <div class=name>
      <p class=" label"><span class="material-symbols-outlined">
@@ -21,10 +24,52 @@
         </ul>
     </div>
 </div>`
-    }
-)
-const engineer = data.engineer.map((eng)=>{
-    return `
+            case "Engineer":
+                return `
+ <div class="card-holder">
+        <div class=name>
+        <p class=" label"> <span class="material-symbols-outlined">
+        manage_accounts
+        </span> Engineer</p>
+           <H2>${employee.name}</H2> 
+
+        </div>
+    <div class=data>
+           <ul class="list-group">
+               <li class="list">ID:${employee.id}</li>
+               <li class="list">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+               <li class="list">Github: <a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a></li>
+           </ul>
+    </div>
+</div>`
+            case "Intern":
+                return `
+<div class="card-holder">
+         <div class=name>
+          <p class=" label"> 
+          <span class="material-symbols-outlined">
+         local_library
+           </span>Intern</p>
+         <H2>${employee.name}</H2>
+
+       </div>
+   <div class=data>
+       <ul class="list-group">
+           <li class="list">ID:${employee.id}</li>
+           <li class="list">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+           <li class="list">School: ${employee.school}</li>
+       </ul>
+   </div>
+</div>`
+        }
+    
+ 
+})
+/*
+//const engineer = data.Engineer.map((eng)=>{
+const engineer = data.map((eng) => {
+    if (eng.role == 'Engineer') {
+        return `
 <div class="card-holder">
     <div class=name>
     <p class=" label"> <span class="material-symbols-outlined">
@@ -41,10 +86,13 @@ const engineer = data.engineer.map((eng)=>{
        </ul>
    </div>
 </div>`
-   }
+    }
+}
 )
-const intern = data.intern.map((int)=>{
-    return `
+//const intern = data.Intern.map((int)=>{
+const intern = data.map((int) => {
+    if (int.role == "Intern") {
+        return `
 <div class="card-holder">
     <div class=name>
     <p class=" label"> 
@@ -61,9 +109,11 @@ local_library
        </ul>
    </div>
 </div>`
-   }
-)
-  return `
+    }
+}
+
+)*/
+return `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,15 +131,16 @@ local_library
         <h2> My Team Profile</h2>
     </header>
     <div class="container">
-    ${manager}
-    ${engineer}
-    ${intern}
+    ${employeeCards}
+   
     </div>
 
 `
 }
 
-
+//${manager}
+//  ${engineer}
+// ${intern}
 module.exports = HtmlRender
 
 /* <div class="card-holder">

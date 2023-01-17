@@ -2,11 +2,12 @@ const Intern = require('../lib/Intern.js')
 
 
 test('creates an object of inters data ', () => {
-    const intern = new Intern('Feliks', 24, 'test@email.com', 'Bootcamp');
+    const intern = new Intern('Feliks', 24, 'test@email.com','Intern','Bootcamp');
 
     expect(intern.name).toEqual('Feliks');
     expect(intern.id).toEqual(24);
     expect(intern.email).toEqual('test@email.com');
+    expect(intern.role).toEqual('Intern');
     expect(intern.school).toEqual('Bootcamp');
 })
 
@@ -35,7 +36,7 @@ test('return role of the Interns as Intern', () => {
 })
 
 test('return school of the intern', () => {
-    const intern = new Intern('Feliks', 24, 'test@email.com',  'Bootcamp');
+    const intern = new Intern('Feliks', 24, 'test@email.com', "Intern" ,'Bootcamp');
 
     expect(intern.getSchool()).toEqual('Bootcamp');
 })

@@ -1,12 +1,13 @@
 const Engineere = require('../lib/Engineer.js');
 const Engineer = require('../lib/Engineer')
 
-test('creates an object withengineer data', () => {
-    const engineer = new Engineer('Feliks', 24, 'test@email.com', 'felixbor');
+test('creates an object with engineer data', () => {
+    const engineer = new Engineer('Feliks', 24, 'test@email.com', 'Engineer','felixbor' );
 
     expect(engineer.name).toEqual('Feliks');
     expect(engineer.id).toBe(24);
     expect(engineer.email).toEqual('test@email.com');
+    expect(engineer.role).toEqual('Engineer');
     expect(engineer.github).toEqual('felixbor');
 })
 
@@ -32,7 +33,7 @@ test('should return the role of the employee', () => {
 
 test('should return the github of the engineer', () => {
       const github = 'felixbor';
-    const engineer = new Engineer('Feliks', 24, 'test@email.com', github);
+    const engineer = new Engineer('Feliks', 24, 'test@email.com',"Engineer",github);
   
     expect(engineer.getGithub()).toEqual('felixbor');
 })
