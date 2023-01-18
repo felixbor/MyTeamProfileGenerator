@@ -5,7 +5,7 @@ function HtmlRender(data) {
 
     //const manager = data.Manager.map((employee)=>{
     const employeeCards = data.map((employee) => {
-        switch (employee.role) {
+        switch (employee.getRole()) {
             case "Manager":
                 return `
 <div class="card-holder">
