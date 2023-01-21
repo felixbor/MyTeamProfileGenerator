@@ -1,9 +1,9 @@
 
 
-
+// adding functions which allows render HTML based on user answers
 function HtmlRender(data) {
 
-    //const manager = data.Manager.map((employee)=>{
+    // looping through the array of data using getRole() as criteria of employee role
     const employeeCards = data.map((employee) => {
         switch (employee.getRole()) {
             case "Manager":
@@ -65,54 +65,7 @@ function HtmlRender(data) {
     
  
 })
-/*
-//const engineer = data.Engineer.map((eng)=>{
-const engineer = data.map((eng) => {
-    if (eng.role == 'Engineer') {
-        return `
-<div class="card-holder">
-    <div class=name>
-    <p class=" label"> <span class="material-symbols-outlined">
-    manage_accounts
-    </span> Engineer</p>
-       <H2>${eng.name}</H2>
-       
-    </div>
-   <div class=data>
-       <ul class="list-group">
-           <li class="list">ID:${eng.id}</li>
-           <li class="list">Email: <a href="mailto:${eng.email}">${eng.email}</a></li>
-           <li class="list">Github: <a href="https://github.com/${eng.github}" target="_blank">${eng.github}</a></li>
-       </ul>
-   </div>
-</div>`
-    }
-}
-)
-//const intern = data.Intern.map((int)=>{
-const intern = data.map((int) => {
-    if (int.role == "Intern") {
-        return `
-<div class="card-holder">
-    <div class=name>
-    <p class=" label"> 
-    <span class="material-symbols-outlined">
-local_library
-</span>Intern</p>
-       <H2>${int.name}</H2>
-    </div>
-   <div class=data>
-       <ul class="list-group">
-           <li class="list">ID:${int.id}</li>
-           <li class="list">Email: <a href="mailto:${int.email}">${int.email}</a></li>
-           <li class="list">School: ${int.School}</li>
-       </ul>
-   </div>
-</div>`
-    }
-}
 
-)*/
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -138,21 +91,6 @@ return `
 `
 }
 
-//${manager}
-//  ${engineer}
-// ${intern}
+
 module.exports = HtmlRender
 
-/* <div class="card-holder">
-          <div class=name>
-        <H2>${data.manager.name}</H2>
-          </div>
-          <div class=data>
-            <ul class="list-group">
-                <li class="list">ID:${data.manager.id}</li>
-                <li class="list">Email: <a href="mailto::${data.manager.email}">manager@jmail.com</a></li>
-                <li class="list">Office number: :${data.manager.officeNumber}</li>
-            </ul>
-           </div>
-        </div>
-        */

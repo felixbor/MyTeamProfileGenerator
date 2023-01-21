@@ -1,13 +1,13 @@
 const inquirer = require('inquirer');
-const fs = require('fs');const Employee = require('./lib/Employee.js');
+const fs = require('fs');
+const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
 const HtmlRender = require('./src/template.js')
 const AllTeamData =[]
-
-
+// function that provides Manager prompts
 function ManagerInput() {
     inquirer.prompt([
         {
@@ -66,11 +66,13 @@ function ManagerInput() {
     ])
         .then(data => {
             let manager = new Manager(data.name,data.id,data.email,'Manager',data.officeNumber,)
+           // using push method to add data to AllTeamData array
             AllTeamData.push(manager);
             AddTeamMember();
         })
 
 }
+// function that provides further choice of team members
 function AddTeamMember() {
     inquirer.prompt([
         {
@@ -103,7 +105,7 @@ function AddTeamMember() {
         };
     });
 }
-
+// function that provides Engineer prompts
 function EngineerInput() {
     inquirer.prompt([
         {
@@ -161,7 +163,7 @@ function EngineerInput() {
         AddTeamMember();
     })
 };
-
+// function that provides Intern prompts
 function InternInput() {
     inquirer.prompt([
         {
@@ -224,62 +226,10 @@ function InternInput() {
 
 }
 ManagerInput()
-
-createTeamProfile = () =>{
-    fs.writeFileSync("./dist/index.html", HtmlRender(AllTeamData));
+// functions that creates a new HTML file in dist folder and passing function HtmlRender as a content of the created file
+CreateTeamProfile = () =>{
+    fs.writeFileSync("./dist/team.html", HtmlRender(AllTeamData));
    
 }
 
 
-/*
-const peoples = [{name: "Bob", age :35}, {name: "Jim", age: 55}, {name: "Kim", age: 24}]
-
-const messages = peoples.map((person, index) => {
-   return `${person.name} is ${person.age} years old`
-}).join(',')
-
-console.log(messages)*/
-
-
-const data = {
-    manager: [
-      {
-        name: 'asdfa',
-        id: '52',
-        email: 'sdf@dff.sdf',
-        officeNumber: '52'
-      }
-    ],
-    engineer: [
-      {
-        name: 'asdfsad',
-        id: '5111',
-        email: 'sdf@sdfsdf.sdf',
-        github: 'eengineer1'
-      },
-      {
-        name: 'engin 2',
-        id: '655',
-        email: 'sdsg@dsdf.dsfs',
-        github: 'engine 2222'
-      }
-    ],
-    intern: []
-  }
-
- /*
-const loop = data.map(position=>{
-    if (position.manager) {
-        return manager.name
-    }
-    if (position.intern){
-        return intern.name}
-    if (position.engineer) {
- return engineer.name
-    } 
-
-
-    }
-)
-console.log(loop)
-*/
